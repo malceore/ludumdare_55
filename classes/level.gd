@@ -3,6 +3,7 @@ class_name level
 
 @export var rotationAmount = 45
 @export var zoomAmount = 2
+@export var nextLevelPath = ""
 
 @onready var map = $Marker3D
 @onready var camera = $CameraPivot/Marker3D/Camera3D
@@ -14,11 +15,15 @@ var started = false
 func _ready():
 	person_handler.person_events.connect(handle_person_event)
 	started = true
+	game_summary_menu.NextLevelButton.pressed.connect(loadNextLevel)
 
 func handle_person_event(whatType, isTarget, isDemon, target):
 	if whatType == "clicked":
 		if isTarget:
 			win()
+			
+func loadNextLevel():
+	get_tree().change_scene_to_file(nextLevelPath)
 
 func win():
 	game_summary_menu.calculateScore(person_handler.demonsClicked, person_handler.totalDemons, person_handler.incorrectsClicked)
