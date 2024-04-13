@@ -3,6 +3,7 @@ class_name level
 
 @export var rotationAmount = 45
 @export var zoomAmount = 2
+@export var target = 1
 @export var nextLevelPath = ""
 
 @onready var map = $Marker3D
@@ -14,6 +15,7 @@ var started = false
 
 func _ready():
 	person_handler.person_events.connect(handle_person_event)
+	$Summons.Sprite.frame = target
 	started = true
 	game_summary_menu.NextLevelButton.pressed.connect(loadNextLevel)
 

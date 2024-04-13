@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2sx7mfgqd5hw"]
+[gd_scene load_steps=7 format=3 uid="uid://d2sx7mfgqd5hw"]
 
 [ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_64n18"]
 [ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="2_h28ui"]
 [ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://personhandler/person_handler.tscn" id="2_uhp2s"]
 [ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://gamesummarmenu/game_summary_menu.tscn" id="4_jnu1v"]
 [ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="5_x17dl"]
+[ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="6_n4wvy"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_64n18")
@@ -46,6 +47,8 @@ isDemon = true
 
 [node name="Person4" parent="PersonHandler" instance=ExtResource("2_h28ui")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.440691, 0.0663087, -0.0513072)
+
+[node name="Summons" parent="." instance=ExtResource("6_n4wvy")]
 
 [node name="GameSummaryMenu" parent="." instance=ExtResource("4_jnu1v")]
 visible = false

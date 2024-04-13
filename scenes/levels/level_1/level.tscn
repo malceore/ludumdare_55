@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://barvvkv4myob8"]
+
+[ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_x5nrb"]
+[ext_resource type="PackedScene" uid="uid://dco1bi4sd2qfo" path="res://models/bench.glb" id="2_rmswl"]
+[ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://personhandler/person_handler.tscn" id="2_vhkp1"]
+[ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="3_bqjlc"]
+[ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="4_5l7a3"]
+[ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://gamesummarmenu/game_summary_menu.tscn" id="4_wvah6"]
+[ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="5_74ijw"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_x5nrb")
+target = 13
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.745348, 0.666676, 0, -0.666676, 0.745348, 0, 0, 0)
+
+[node name="Marker3D" type="Marker3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043, 2.453)
+gizmo_extents = 0.48
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/Marker3D"]
+fov = 42.8
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+
+[node name="bench" parent="Marker3D" instance=ExtResource("2_rmswl")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.0640756, 0.0357862, 0.0120104)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Marker3D"]
+transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 0.707107, -0.703598, -0.0703525, 0, 2.47017, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496113, 0)
+
+[node name="PersonHandler" parent="." instance=ExtResource("2_vhkp1")]
+
+[node name="Person" parent="PersonHandler" instance=ExtResource("3_bqjlc")]
+frame = 13
+isTarget = true
+
+[node name="Summons" parent="." instance=ExtResource("4_5l7a3")]
+
+[node name="GameSummaryMenu" parent="." instance=ExtResource("4_wvah6")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_74ijw")
+autoplay = true
