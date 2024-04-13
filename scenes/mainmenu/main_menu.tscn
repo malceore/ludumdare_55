@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bucqo5cg2vlsg"]
+[gd_scene load_steps=2 format=3 uid="uid://bucqo5cg2vlsg"]
+
+[ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="1_x4n8c"]
 
 [node name="MainMenu" type="Node3D"]
 
@@ -58,3 +60,7 @@ size_flags_vertical = 3
 bbcode_enabled = true
 text = "[center][i]
 Ben K. and Brandon W."
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_x4n8c")
+autoplay = true

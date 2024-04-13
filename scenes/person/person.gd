@@ -9,7 +9,7 @@ func _on_area_3d_input_event(camera, event, position, normal, shape_idx):
 		summon()
 		
 func summon():
+	$AudioStreamPlayer3D.play()
 	$CPUParticles3D.emitting = true
-	# Play sound here
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(0.5).timeout
 	queue_free()
