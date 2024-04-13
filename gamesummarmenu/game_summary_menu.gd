@@ -12,7 +12,6 @@ func display():
 	$AudioStreamPlayer.play()
 	get_tree().paused = true
 	self.visible = true
-	
 
 func calculateScore(demons_clicked, total_demons, incorrects_clicked):
 	var summary = """
@@ -28,4 +27,5 @@ func calculateScore(demons_clicked, total_demons, incorrects_clicked):
 	$MarginContainer/VBoxContainer/Summary.text = summary % points
 
 func _on_return_to_menu_button_button_up():
+	get_tree().paused = false
 	get_tree().change_scene_to_file(mainMenu)

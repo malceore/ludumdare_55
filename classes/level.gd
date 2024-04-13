@@ -16,6 +16,7 @@ var started = false
 var zoomed = false
 
 func _ready():
+	get_tree().paused = false
 	person_handler.person_events.connect(handle_person_event)
 	$Summons.Sprite.frame = target
 	started = true
@@ -27,6 +28,7 @@ func handle_person_event(whatType, isTarget, isDemon, target):
 			win()
 			
 func loadNextLevel():
+	get_tree().paused = false
 	get_tree().change_scene_to_file(nextLevelPath)
 
 func win():
@@ -40,8 +42,6 @@ func _input(event):
 		var changev = -event.relative.y * zoom_mouse_sen
 		camera_anglev += changev
 		camera.rotate_x(deg_to_rad(changev))
-
-
 	if event.is_action_pressed("rotate_left"):
 		rotate_left()
 	if event.is_action_pressed("rotate_right"):
