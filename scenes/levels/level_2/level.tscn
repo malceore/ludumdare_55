@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmlt1x0kcyb7f"]
+
+[ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_6yisj"]
+[ext_resource type="PackedScene" uid="uid://cltt67r7yho64" path="res://models/building_2.glb" id="2_4574h"]
+[ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://personhandler/person_handler.tscn" id="2_cod4o"]
+[ext_resource type="PackedScene" uid="uid://bdqnsp6cfo4fh" path="res://models/street_light.glb" id="3_5oje2"]
+[ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="3_m11ag"]
+[ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="4_pfksv"]
+[ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://gamesummarmenu/game_summary_menu.tscn" id="5_rdhru"]
+[ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="6_2jlme"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_6yisj")
+target = 0
+nextLevelPath = "res://scenes/levels/level_3/level.tscn"
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.745348, 0.666676, 0, -0.666676, 0.745348, 0, 0, 0)
+
+[node name="Marker3D" type="Marker3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043, 2.453)
+gizmo_extents = 0.48
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/Marker3D"]
+fov = 42.8
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+
+[node name="building_2" parent="Marker3D" instance=ExtResource("2_4574h")]
+transform = Transform3D(0, 0, 0.09, 0, 0.09, 0, -0.09, 0, 0, -0.290709, 0.0964438, 0.251144)
+
+[node name="building_3" parent="Marker3D" instance=ExtResource("2_4574h")]
+transform = Transform3D(0, 0, 0.09, 0, 0.09, 0, -0.09, 0, 0, 0.223767, 0.0964438, 0.2666)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Marker3D"]
+transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 0.707107, -0.703598, -0.0703525, 0, 2.47017, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496113, 0)
+
+[node name="Node2D" type="Node2D" parent="Marker3D"]
+
+[node name="street_light" parent="Marker3D" instance=ExtResource("3_5oje2")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.203529, 0.0150529, -0.200288)
+
+[node name="street_light2" parent="Marker3D" instance=ExtResource("3_5oje2")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.187183, 0.0150529, -0.199661)
+
+[node name="PersonHandler" parent="." instance=ExtResource("2_cod4o")]
+
+[node name="Person" parent="PersonHandler" instance=ExtResource("3_m11ag")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.203294, 0.0663087, 0.358603)
+frame = 11
+
+[node name="Person2" parent="PersonHandler" instance=ExtResource("3_m11ag")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.380179, 0.0663087, 0.0940218)
+frame = 1
+
+[node name="Person3" parent="PersonHandler" instance=ExtResource("3_m11ag")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.335132, 0.0663087, -0.0546507)
+frame = 23
+isDemon = true
+
+[node name="Person4" parent="PersonHandler" instance=ExtResource("3_m11ag")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.367188, 0.0663087, 0.15531)
+isTarget = true
+
+[node name="Summons" parent="." instance=ExtResource("4_pfksv")]
+
+[node name="GameSummaryMenu" parent="." instance=ExtResource("5_rdhru")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2jlme")
+autoplay = true
