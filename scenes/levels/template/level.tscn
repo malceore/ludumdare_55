@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2sx7mfgqd5hw"]
 
-[ext_resource type="Script" path="res://scenes/level/level.gd" id="1_6o8r3"]
-[ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="2_siieh"]
+[ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_64n18"]
+[ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="2_h28ui"]
 
 [node name="Level" type="Node3D"]
-script = ExtResource("1_6o8r3")
+script = ExtResource("1_64n18")
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.745348, 0.666676, 0, -0.666676, 0.745348, 0, 0, 0)
@@ -28,14 +28,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496113, 0)
 [node name="Peope" type="Marker3D" parent="Marker3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0169766, 0)
 
-[node name="Person" parent="Marker3D/Peope" instance=ExtResource("2_siieh")]
+[node name="Person" parent="Marker3D/Peope" instance=ExtResource("2_h28ui")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
-[node name="Person2" parent="Marker3D/Peope" instance=ExtResource("2_siieh")]
+[node name="Person2" parent="Marker3D/Peope" instance=ExtResource("2_h28ui")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0834838, -1.19209e-07, 0.414278)
 
-[node name="Person3" parent="Marker3D/Peope" instance=ExtResource("2_siieh")]
+[node name="Person3" parent="Marker3D/Peope" instance=ExtResource("2_h28ui")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.118367, -1.19209e-07, -0.233611)
 
-[node name="Person4" parent="Marker3D/Peope" instance=ExtResource("2_siieh")]
+[node name="Person4" parent="Marker3D/Peope" instance=ExtResource("2_h28ui")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.348694, -1.19209e-07, -0.321723)

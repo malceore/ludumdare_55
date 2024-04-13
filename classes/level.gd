@@ -1,4 +1,5 @@
-extends Node3D
+extends Node
+class_name level
 
 @export var rotationAmount = 45
 @export var zoomAmount = 2
