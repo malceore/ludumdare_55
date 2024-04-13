@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2sx7mfgqd5hw"]
+
+[ext_resource type="Script" path="res://scenes/level/level.gd" id="1_6o8r3"]
+[ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="2_siieh"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_6o8r3")
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.745348, 0.666676, 0, -0.666676, 0.745348, 0, 0, 0)
+
+[node name="Marker3D" type="Marker3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043, 2.453)
+gizmo_extents = 0.48
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/Marker3D"]
+fov = 42.8
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Marker3D"]
+transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 0.707107, -0.703598, -0.0703525, 0, 2.47017, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496113, 0)
+
+[node name="Peope" type="Marker3D" parent="Marker3D"]
+
+[node name="Person" parent="Marker3D/Peope" instance=ExtResource("2_siieh")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Person2" parent="Marker3D/Peope" instance=ExtResource("2_siieh")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0834838, -1.19209e-07, 0.414278)
+
+[node name="Person3" parent="Marker3D/Peope" instance=ExtResource("2_siieh")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.118367, -1.19209e-07, -0.233611)
+
+[node name="Person4" parent="Marker3D/Peope" instance=ExtResource("2_siieh")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.348694, -1.19209e-07, -0.321723)
