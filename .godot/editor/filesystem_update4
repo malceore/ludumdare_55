@@ -1,0 +1,8 @@
+res://scenes/level/level.tscn
+res://scenes/level/level.gd
+res://scenes/person/person.gd
+res://scenes/person/person.tscn
+res://scenes/mainmenu/main_menu.tscn
+res://classes/level.gd
+res://scenes/levels/template/level.tscn
+res://scenes/levels/template/level.gd
