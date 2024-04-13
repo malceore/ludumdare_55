@@ -2,7 +2,8 @@ extends Node
 class_name level
 
 @export var rotationAmount = 45
-@export var zoomAmount = 2
+@export var zoomAmount = 1.8
+@export var zoom_mouse_sen = 0.2
 @export var target = 1
 @export var nextLevelPath = ""
 
@@ -12,6 +13,7 @@ class_name level
 @onready var game_summary_menu = $GameSummaryMenu
 
 var started = false
+var zoomed = false
 
 func _ready():
 	person_handler.person_events.connect(handle_person_event)
@@ -32,15 +34,26 @@ func win():
 	game_summary_menu.display()
 
 func _input(event):
+	if zoomed and event is InputEventMouseMotion:
+		var camera_anglev = 0
+		camera.rotate_y(deg_to_rad(-event.relative.x*zoom_mouse_sen))
+		var changev = -event.relative.y * zoom_mouse_sen
+		camera_anglev += changev
+		camera.rotate_x(deg_to_rad(changev))
+
+
 	if event.is_action_pressed("rotate_left"):
 		rotate_left()
 	if event.is_action_pressed("rotate_right"):
 		rotate_right()		
 	if event.is_action_pressed("zoom") and started:
-		if camera.position.z == -zoomAmount:
+		if zoomed:
 			camera.position.z = 0
+			camera.rotation = Vector3(0,0,0)
+			zoomed = false
 		else:
 			camera.position.z = -zoomAmount
+			zoomed = true
 
 func rotate_left():
 	$CameraPivot.rotate_y(deg_to_rad(rotationAmount))

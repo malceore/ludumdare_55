@@ -9,3 +9,5 @@ res://scenes/person/person.gd
 res://summons/summons.tscn
 res://summons/summons.gd
 res://scenes/levels/level_1/level.tscn
+res://scenes/levels/level_2/level.tscn
+res://scenes/mainmenu/main_menu.gd

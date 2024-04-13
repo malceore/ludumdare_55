@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bucqo5cg2vlsg"]
+[gd_scene load_steps=3 format=3 uid="uid://bucqo5cg2vlsg"]
 
+[ext_resource type="Script" path="res://scenes/mainmenu/main_menu.gd" id="1_44mw3"]
 [ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="1_x4n8c"]
 
 [node name="MainMenu" type="Node3D"]
+script = ExtResource("1_44mw3")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -47,12 +49,12 @@ text = "Level 1 "
 [node name="ButtonLevel2" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "Level 1 "
+text = "Level 2"
 
 [node name="ButtonLevel3" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "Level 1 "
+text = "Level 3"
 
 [node name="Credits" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -64,3 +66,7 @@ Ben K. and Brandon W."
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_x4n8c")
 autoplay = true
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/ButtonLevel1" to="." method="_on_button_level_1_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/ButtonLevel2" to="." method="_on_button_level_2_button_up"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel3" to="." method="_on_button_level_3_pressed"]

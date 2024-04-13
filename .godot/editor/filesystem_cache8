@@ -1,9 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1713042128
+::res://::1713043502
 export_presets.cfg::TextFile::-1::1713014544::0::1::::<><>::
 icon.svg::CompressedTexture2D::2957654388314969138::1712971516::1712971525::1::::<><>::
-::res://classes/::1713042421
-level.gd::GDScript::-1::1713042421::0::1::::level<>Node<>::
+::res://classes/::1713045331
+level.gd::GDScript::-1::1713045331::0::1::::level<>Node<>::
 ::res://gamesummarmenu/::1713042307
 game_summary_menu.gd::GDScript::-1::1713041469::0::1::::<>Panel<>::
 game_summary_menu.tscn::PackedScene::4746690560917585454::1713042307::0::1::::<><>::res://gamesummarmenu/game_summary_menu.gd<>uid://c152gmk6yvg4i::::res://sounds/CongratsCrush.wav
@@ -26,9 +26,12 @@ street_light_a-blood-steeped-corridor-8x.png::CompressedTexture2D::4824290083415
 person_handler.gd::GDScript::-1::1713036463::0::1::::<>Node3D<>::
 person_handler.tscn::PackedScene::2180768351214498030::1713042422::0::1::::<><>::res://personhandler/person_handler.gd
 ::res://scenes/::1713014851
-::res://scenes/levels/::1713042574
-::res://scenes/levels/level_1/::0
-level.tscn::PackedScene::2422828223041232859::1713042605::0::1::::<><>::res://scenes/levels/template/level.gd<>uid://6cm63fwtim7o::::res://personhandler/person_handler.tscn<>uid://lm3yi5h46ggx::::res://scenes/person/person.tscn<>uid://dbvk448pe8m6a::::res://summons/summons.tscn<>uid://b8vlkg3x1hsmw::::res://gamesummarmenu/game_summary_menu.tscn<>uid://cfckesdrbd4xf::::res://sounds/Searching.wav
+::res://scenes/levels/::1713042605
+::res://scenes/levels/level_1/::1713045332
+level.gd::GDScript::-1::1713042605::0::1::::<>level<>::
+level.tscn::PackedScene::2422828223041232859::1713045377::0::1::::<><>::res://scenes/levels/template/level.gd<>uid://dco1bi4sd2qfo::::res://models/bench.glb<>uid://6cm63fwtim7o::::res://personhandler/person_handler.tscn<>uid://lm3yi5h46ggx::::res://scenes/person/person.tscn<>uid://dbvk448pe8m6a::::res://summons/summons.tscn<>uid://b8vlkg3x1hsmw::::res://gamesummarmenu/game_summary_menu.tscn<>uid://cfckesdrbd4xf::::res://sounds/Searching.wav
+::res://scenes/levels/level_2/::0
+level.tscn::PackedScene::5639016946956474537::1713045444::0::1::::<><>::res://scenes/levels/template/level.gd<>uid://6cm63fwtim7o::::res://personhandler/person_handler.tscn<>uid://lm3yi5h46ggx::::res://scenes/person/person.tscn<>uid://dbvk448pe8m6a::::res://summons/summons.tscn<>uid://b8vlkg3x1hsmw::::res://gamesummarmenu/game_summary_menu.tscn<>uid://cfckesdrbd4xf::::res://sounds/Searching.wav
 ::res://scenes/levels/template/::1713042542
 level.gd::GDScript::-1::1713041706::0::1::::<>level<>::
 level.tscn::PackedScene::9092973903416209428::1713042542::0::1::::<><>::res://scenes/levels/template/level.gd<>uid://lm3yi5h46ggx::::res://scenes/person/person.tscn<>uid://6cm63fwtim7o::::res://personhandler/person_handler.tscn<>uid://b8vlkg3x1hsmw::::res://gamesummarmenu/game_summary_menu.tscn<>uid://cfckesdrbd4xf::::res://sounds/Searching.wav<>uid://dbvk448pe8m6a::::res://summons/summons.tscn
@@ -41,7 +44,6 @@ level_2_texture.png::CompressedTexture2D::8290521213980197483::1713041291::17130
 person.gd::GDScript::-1::1713042051::0::1::::<>Node3D<>::
 person.tscn::PackedScene::798593214807212963::1713042422::0::1::::<><>::res://scenes/person/person.gd<>uid://viwp5xl08nyi::::res://scenes/person/sprite_sheet.png<>uid://onelcehxmnfn::::res://scenes/person/FireCrush.wav
 sprite_sheet.png::CompressedTexture2D::1491844910946110756::1713020745::1713020805::1::::<><>::
-::res://sound/::1713015804
 ::res://sounds/::1713041469
 CongratsCrush.wav::AudioStreamWAV::6661333355334610690::1713041469::1713041469::1::::<><>::
 CrowdCrush.wav::AudioStreamWAV::1342481840411965942::1713039334::1713041469::1::::<><>::

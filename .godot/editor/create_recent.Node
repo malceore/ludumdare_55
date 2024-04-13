@@ -1,6 +1,8 @@
+MarginContainer
+TextEdit
+Panel
 RichTextLabel
 VBoxContainer
-Panel
 Sprite2D
 AudioStreamPlayer
 AudioStreamPlayer3D
@@ -9,7 +11,6 @@ GPUParticles2D
 Camera3D
 GPUParticles3D
 Button
-MarginContainer
 Node2D
 Node3D
 BoxContainer
