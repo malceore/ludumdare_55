@@ -1,0 +1,44 @@
+name: "publish"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+  GODOT_VERSION: ${{ vars.GODOT_VERSION }}
+  EXPORT_NAME: ${{ vars.PROJECT_NAME }}-${{ vars.PROJECT_VERSION }}
+  ITCHIO_USERNAME: ${{ vars.ITCHIO_USERNAME }}
+  ITCHIO_GAME: ${{ vars.ITCHIO_GAME }}
+  BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+  
+jobs:
+  Build:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: true           
+
+      - name: export game
+        id: export
+        # Use latest version (see releases for all versions)
+        uses: firebelley/godot-export@v5.2.0
+        with:
+          # Defining all the required inputs
+          godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/${{ env.GODOT_VERSION }}/Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/${{ env.GODOT_VERSION }}/Godot_v${{ env.GODOT_VERSION }}-stable_export_templates.tpz
+          relative_project_path: ./
+          archive_output: true
+
+      - name: Upload Artifact to Itch with Butler
+        id: release
+        run: | 
+          # Download and setup Butler
+          wget -q -O butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          ./butler push ${{ steps.export.outputs.archive_directory }}/Windows-Desktop.zip $ITCHIO_USERNAME/$ITCHIO_GAME:Windows-Desktop
+          ./butler push ${{ steps.export.outputs.archive_directory }}/Web.zip $ITCHIO_USERNAME/$ITCHIO_GAME:html5
+
