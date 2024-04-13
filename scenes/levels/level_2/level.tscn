@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_6yisj"]
 [ext_resource type="PackedScene" uid="uid://cltt67r7yho64" path="res://models/building_2.glb" id="2_4574h"]
-[ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://personhandler/person_handler.tscn" id="2_cod4o"]
+[ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://scenes/personhandler/person_handler.tscn" id="2_cod4o"]
 [ext_resource type="PackedScene" uid="uid://bdqnsp6cfo4fh" path="res://models/street_light.glb" id="3_5oje2"]
 [ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="3_m11ag"]
 [ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="4_pfksv"]

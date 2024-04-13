@@ -29,4 +29,4 @@ vframes = 3
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 bbcode_enabled = true
-text = "[center][b]Server Target"
+text = "[center][b]Summons Target"

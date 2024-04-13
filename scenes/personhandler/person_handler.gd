@@ -18,7 +18,7 @@ func handle_person_event(whatType, isTarget, isDemon, target):
 	if whatType == "clicked":
 		if isDemon:
 			demonsClicked += 1
-		if isTarget:
+		elif isTarget:
 			targetsClicked += 1
 		else:
 			incorrectsClicked += 1

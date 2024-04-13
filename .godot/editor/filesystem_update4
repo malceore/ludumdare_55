@@ -12,3 +12,5 @@ res://scenes/levels/level_1/level.tscn
 res://scenes/levels/level_2/level.tscn
 res://scenes/mainmenu/main_menu.gd
 res://gamesummarmenu/game_summary_menu.gd
+res://personhandler/person_handler.gd
+res://scenes/personhandler/person_handler.tscn
