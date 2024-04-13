@@ -26,6 +26,7 @@ transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496113, 0)
 
 [node name="Peope" type="Marker3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0169766, 0)
 
 [node name="Person" parent="Marker3D/Peope" instance=ExtResource("2_siieh")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
