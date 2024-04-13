@@ -1,28 +1,54 @@
-[gd_scene load_steps=5 format=3 uid="uid://lm3yi5h46ggx"]
+[gd_scene load_steps=7 format=3 uid="uid://lm3yi5h46ggx"]
 
 [ext_resource type="Script" path="res://scenes/person/person.gd" id="1_opow3"]
-
-[sub_resource type="Gradient" id="Gradient_k5ck4"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_86wyc"]
-gradient = SubResource("Gradient_k5ck4")
+[ext_resource type="Texture2D" uid="uid://viwp5xl08nyi" path="res://scenes/person/sprite_sheet.png" id="2_8wh7v"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6mlv6"]
-height = 0.669134
+height = 1.25399
 radius = 0.320888
 
-[node name="Person" type="Node3D"]
-script = ExtResource("1_opow3")
+[sub_resource type="QuadMesh" id="QuadMesh_jwvwd"]
+size = Vector2(0.03, 0.04)
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32755, 0)
+[sub_resource type="Curve" id="Curve_bo1q7"]
+_data = [Vector2(0.144444, 1), 0.0, 0.0, 0, 0, Vector2(0.848148, 0.202847), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_2brpb"]
+offsets = PackedFloat32Array(0, 0.300885, 1)
+colors = PackedColorArray(0.803802, 0.208342, 0.237888, 1, 0.963337, 0.640122, 0.221069, 1, 0.537009, 0.163089, 0.0869987, 1)
+
+[node name="Person" type="Sprite3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0663087, 0)
 billboard = 2
-texture = SubResource("GradientTexture2D_86wyc")
+texture = ExtResource("2_8wh7v")
+hframes = 10
+vframes = 3
+script = ExtResource("1_opow3")
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.365754, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00993282, 0)
 shape = SubResource("CylinderShape3D_6mlv6")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65513, 0)
+emitting = false
+amount = 32
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.1
+fixed_fps = 30
+fract_delta = false
+mesh = SubResource("QuadMesh_jwvwd")
+emission_shape = 1
+emission_sphere_radius = 0.25
+gravity = Vector3(0, 12, 0)
+radial_accel_min = -25.0
+radial_accel_max = 2.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_bo1q7")
+color_ramp = SubResource("Gradient_2brpb")
 
 [connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

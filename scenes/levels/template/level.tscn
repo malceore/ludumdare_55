@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2sx7mfgqd5hw"]
+[gd_scene load_steps=5 format=3 uid="uid://d2sx7mfgqd5hw"]
 
 [ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_64n18"]
 [ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="2_h28ui"]
+[ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://personhandler/person_handler.tscn" id="2_uhp2s"]
+[ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://gamesummarmenu/game_summary_menu.tscn" id="4_jnu1v"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_64n18")
@@ -25,17 +27,24 @@ transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 
 [node name="CSGBox3D" type="CSGBox3D" parent="Marker3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496113, 0)
 
-[node name="Peope" type="Marker3D" parent="Marker3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0169766, 0)
+[node name="Node2D" type="Node2D" parent="Marker3D"]
 
-[node name="Person" parent="Marker3D/Peope" instance=ExtResource("2_h28ui")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+[node name="PersonHandler" parent="." instance=ExtResource("2_uhp2s")]
 
-[node name="Person2" parent="Marker3D/Peope" instance=ExtResource("2_h28ui")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0834838, -1.19209e-07, 0.414278)
+[node name="Person" parent="PersonHandler" instance=ExtResource("2_h28ui")]
 
-[node name="Person3" parent="Marker3D/Peope" instance=ExtResource("2_h28ui")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.118367, -1.19209e-07, -0.233611)
+[node name="Person2" parent="PersonHandler" instance=ExtResource("2_h28ui")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0920368, 0.0663087, 0.252787)
+frame = 1
+isTarget = true
 
-[node name="Person4" parent="Marker3D/Peope" instance=ExtResource("2_h28ui")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.348694, -1.19209e-07, -0.321723)
+[node name="Person3" parent="PersonHandler" instance=ExtResource("2_h28ui")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.317502, 0.0663087, -0.253196)
+frame = 20
+isDemon = true
+
+[node name="Person4" parent="PersonHandler" instance=ExtResource("2_h28ui")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.440691, 0.0663087, -0.0513072)
+
+[node name="GameSummaryMenu" parent="." instance=ExtResource("4_jnu1v")]
+visible = false

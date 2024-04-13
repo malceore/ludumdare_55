@@ -1,15 +1,15 @@
 extends Node3D
 
-@export var it = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@export var isTarget = false
+@export var isDemon = false
 
 func _on_area_3d_input_event(camera, event, position, normal, shape_idx):
 	if  event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print_debug("You clicked me!")
+		get_parent().person_events.emit("clicked", isTarget, isDemon, self)
+		summon()
+		
+func summon():
+	$CPUParticles3D.emitting = true
+	# Play sound here
+	await get_tree().create_timer(0.4).timeout
+	queue_free()
