@@ -9,8 +9,10 @@ extends Panel
 var mainMenu = "res://scenes/mainmenu/main_menu.tscn"
 
 func display():
+	$AudioStreamPlayer.play()
 	get_tree().paused = true
 	self.visible = true
+	
 
 func calculateScore(demons_clicked, total_demons, incorrects_clicked):
 	var summary = """

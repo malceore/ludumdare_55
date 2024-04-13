@@ -1,3 +1,5 @@
+AudioStreamPlayer
+AudioStreamPlayer3D
 CPUParticles3D
 GPUParticles2D
 Camera3D
@@ -10,11 +12,3 @@ Panel
 Node2D
 Node3D
 BoxContainer
-Container
-HBoxContainer
-Marker3D
-CollisionShape3D
-Area3D
-Sprite3D
-SpotLight3D
-CSGBox3D

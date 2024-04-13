@@ -27,7 +27,7 @@ func loadNextLevel():
 
 func win():
 	game_summary_menu.calculateScore(person_handler.demonsClicked, person_handler.totalDemons, person_handler.incorrectsClicked)
-	game_summary_menu.visible = true
+	game_summary_menu.display()
 
 func _input(event):
 	if event.is_action_pressed("rotate_left"):
