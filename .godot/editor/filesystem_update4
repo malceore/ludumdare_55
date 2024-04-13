@@ -1,9 +1,5 @@
-res://scenes/mainmenu/main_menu.tscn
-res://scenes/levels/template/level.gd
 res://scenes/levels/template/level.tscn
 res://scenes/person/person.tscn
 res://personhandler/person_handler.tscn
 res://gamesummarmenu/game_summary_menu.tscn
-res://scenes/person/person.gd
-res://gamesummarmenu/game_summary_menu.gd
-res://classes/level.gd
+res://scenes/mainmenu/main_menu.tscn
