@@ -15,14 +15,18 @@ class_name level
 
 var started = false
 var zoomed = false
+var target_rotation = 0
 
 func _ready():
 	get_tree().paused = false
 	person_handler.person_events.connect(handle_person_event)
 	$Summons.Sprite.frame = target
 	started = true
-	game_summary_menu.NextLevelButton.pressed.connect(loadNextLevel)
-
+	if nextLevelPath != "":
+		game_summary_menu.NextLevelButton.pressed.connect(loadNextLevel)
+	else:
+		game_summary_menu.NextLevelButton.visible = false
+		
 func handle_person_event(whatType, isTarget, isDemon, target):
 	if whatType == "clicked":
 		if isTarget:
@@ -36,8 +40,7 @@ func win():
 	game_summary_menu.calculateScore(person_handler.demonsClicked, person_handler.totalDemons, person_handler.incorrectsClicked)
 	game_summary_menu.display()
 
-func _input(event):
-	
+func _input(event):	
 	if event is InputEventMouseMotion:
 		if !zoomed:
 			spotlight.visible = true
@@ -54,11 +57,6 @@ func _input(event):
 		if mousePos.size() > 0:
 			$CameraPivot.position.x = mousePos.position.x 
 			$CameraPivot.position.z = mousePos.position.z
-
-	if event.is_action_pressed("rotate_left"):
-		rotate_left()
-	if event.is_action_pressed("rotate_right"):
-		rotate_right()		
 	if event.is_action_pressed("zoom") and started:
 		if zoomed:
 			$CameraPivot.position = Vector3.ZERO
@@ -67,13 +65,19 @@ func _input(event):
 			zoomed = false
 		else:
 			var mousePos = get_mouse_coordinates()
-			print_debug(mousePos, zoomed)
+#			print_debug(mousePos, zoomed)
 			zoomed = true
 			if mousePos.size() > 0:
 				camera.position.z = -zoomAmount
 				$CameraPivot.global_position.x = mousePos.position.x
 				$CameraPivot.global_position.z = mousePos.position.z
 
+func _process(delta):
+	if Input.is_action_just_pressed("rotate_right"):
+		target_rotation += rotationAmount
+	if Input.is_action_just_pressed("rotate_left"):
+		target_rotation -= rotationAmount
+	$CameraPivot.rotation.y = lerp_angle($CameraPivot.rotation.y, deg_to_rad(target_rotation), 0.12)
 
 func get_mouse_coordinates():
 	var space_state = get_world_3d().direct_space_state
@@ -88,14 +92,4 @@ func get_mouse_coordinates():
 	return space_state.intersect_ray(query)
 
 
-func rotate_left():
-	$CameraPivot.rotate_y(deg_to_rad(rotationAmount))
-	
-func rotate_right():
-	$CameraPivot.rotate_y(deg_to_rad(-rotationAmount))
 
-func view_up():
-	$CameraPivot.rotate_x(deg_to_rad(rotationAmount))
-
-func view_down():
-	$CameraPivot.rotate_x(deg_to_rad(-rotationAmount))
