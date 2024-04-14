@@ -6,3 +6,7 @@ res://scenes/levels/level_3/level.tscn
 res://scenes/person/person.tscn
 res://scenes/person/person.gd
 res://spotlight/spotlight.tscn
+res://scenes/exposition/exposition.tscn
+res://scenes/exposition/exposition.gd
+res://scenes/mainmenu/main_menu.tscn
+res://scenes/mainmenu/main_menu.gd

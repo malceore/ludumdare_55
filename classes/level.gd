@@ -18,6 +18,7 @@ var zoomed = false
 var target_rotation = 0
 var target_zoom = 0
 
+
 func _ready():
 	get_tree().paused = false
 	person_handler.person_events.connect(handle_person_event)
@@ -27,19 +28,23 @@ func _ready():
 		game_summary_menu.NextLevelButton.pressed.connect(loadNextLevel)
 	else:
 		game_summary_menu.NextLevelButton.visible = false
-		
+
+
 func handle_person_event(whatType, isTarget, isDemon, target):
 	if whatType == "clicked":
 		if isTarget:
 			win()
-			
+
+
 func loadNextLevel():
 	get_tree().paused = false
 	get_tree().change_scene_to_file(nextLevelPath)
 
+
 func win():
 	game_summary_menu.calculateScore(person_handler.demonsClicked, person_handler.totalDemons, person_handler.incorrectsClicked)
 	game_summary_menu.display()
+
 
 func _input(event):	
 	# Move Spotlight

@@ -4,6 +4,9 @@ extends Node3D
 @export var isDemon = false
 @export var active = true
 
+func _ready():
+	$AnimationPlayer.play("Wiggle")
+
 func _on_area_3d_input_event(camera, event, position, normal, shape_idx):
 	if active and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		active = false

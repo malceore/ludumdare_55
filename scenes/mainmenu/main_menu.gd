@@ -1,7 +1,7 @@
 extends Node3D
 
 var level = [
-	"",
+	"res://scenes/exposition/exposition.tscn",
 	"res://scenes/levels/level_1/level.tscn",
 	"res://scenes/levels/level_2/level.tscn",
 	"res://scenes/levels/level_3/level.tscn"
@@ -10,7 +10,7 @@ var level = [
 func _on_button_level_1_button_up():
 	$AudioGavel.play()
 	await $AudioGavel.finished
-	get_tree().change_scene_to_file(level[1])
+	get_tree().change_scene_to_file(level[0])
 
 func _on_button_level_2_button_up():
 	$AudioGavel.play()
