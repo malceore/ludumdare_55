@@ -60,14 +60,7 @@ func _input(event):
 #			$CameraPivot.position.x = mousePos.position.x 
 #			$CameraPivot.position.z = mousePos.position.z
 		# Camera pivot placement
-		if event.is_action_pressed("zoom") and started:
-			if zoomed:
-				$CameraPivot.position = Vector3.ZERO
-			else:
-				var mousePos = get_mouse_coordinates()
-				if mousePos.size() > 0:
-					$CameraPivot.global_position.x = mousePos.position.x
-					$CameraPivot.global_position.z = mousePos.position.z
+
 
 func _process(delta):
 	# Camera Rotation
@@ -78,18 +71,22 @@ func _process(delta):
 	$CameraPivot.rotation.y = lerp_angle($CameraPivot.rotation.y, deg_to_rad(target_rotation), 0.12)
 	
 	# Control Zoom
-	if Input.is_action_pressed("zoom") and started:
+	if Input.is_action_just_pressed("zoom") and started:
 		if zoomed:
 			target_zoom = 0
 			camera.position = Vector3.ZERO
 			camera.rotation = Vector3.ZERO
+			$CameraPivot.position = Vector3.ZERO
 			zoomed = false
 		else:
 			zoomed = true
 			var mousePos = get_mouse_coordinates()
 			if mousePos.size() > 0:
+				$CameraPivot.global_position.x = mousePos.position.x
+				$CameraPivot.global_position.z = mousePos.position.z
 				target_zoom -= zoomAmount
 	camera.position = camera.position.lerp(Vector3(0, 0, target_zoom), 0.05)
+
 
 func get_mouse_coordinates():
 	var space_state = get_world_3d().direct_space_state

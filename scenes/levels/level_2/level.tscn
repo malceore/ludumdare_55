@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="4_pfksv"]
 [ext_resource type="PackedScene" uid="uid://bib8632jvtttu" path="res://spotlight/spotlight.tscn" id="5_nnsdy"]
 [ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="5_rdhru"]
-[ext_resource type="AudioStream" uid="uid://5qron60lvuq1" path="res://sounds/Searching.wav" id="10_lu6q1"]
+[ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="10_lu6q1"]
 
-[node name="Level" type="Node3D"]
+[node name="Level2" type="Node3D"]
 script = ExtResource("1_6yisj")
 target = 0
 nextLevelPath = "res://scenes/levels/level_3/level.tscn"
@@ -24,6 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043, 2.453)
 gizmo_extents = 0.48
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/Marker3D"]
+current = true
 fov = 42.8
 
 [node name="Marker3D" type="Marker3D" parent="."]
