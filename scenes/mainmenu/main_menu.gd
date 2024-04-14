@@ -8,10 +8,16 @@ var level = [
 ]
 
 func _on_button_level_1_button_up():
+	$AudioGavel.play()
+	await $AudioGavel.finished
 	get_tree().change_scene_to_file(level[1])
 
 func _on_button_level_2_button_up():
+	$AudioGavel.play()
+	await $AudioGavel.finished
 	get_tree().change_scene_to_file(level[2])
 
 func _on_button_level_3_pressed():
+	$AudioGavel.play()
+	await $AudioGavel.finished
 	get_tree().change_scene_to_file(level[3])
