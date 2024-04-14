@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://barvvkv4myob8"]
+[gd_scene load_steps=12 format=3 uid="uid://barvvkv4myob8"]
 
 [ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_x5nrb"]
 [ext_resource type="PackedScene" uid="uid://dco1bi4sd2qfo" path="res://models/bench.glb" id="2_rmswl"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="4_wvah6"]
 [ext_resource type="PackedScene" uid="uid://5jjkxco2xoy3" path="res://scenes/levels/level_1/model.glb" id="5_h4ao4"]
 [ext_resource type="PackedScene" uid="uid://ccjknp6cyccad" path="res://floot/floor.tscn" id="5_omupj"]
+[ext_resource type="PackedScene" uid="uid://dplclpkluccoj" path="res://models/tree/tree.tscn" id="6_thdv0"]
 [ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="10_ldgkx"]
 
 [node name="Level" type="Node3D"]
@@ -43,6 +44,18 @@ visible = true
 
 [node name="model" parent="Marker3D" instance=ExtResource("5_h4ao4")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.495336, 0)
+
+[node name="Tree" parent="Marker3D" instance=ExtResource("6_thdv0")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.304679, 0.188106, -0.265338)
+
+[node name="Tree2" parent="Marker3D" instance=ExtResource("6_thdv0")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.336704, 0.188106, -0.333945)
+
+[node name="Tree3" parent="Marker3D" instance=ExtResource("6_thdv0")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.335509, 0.188106, 0.333726)
+
+[node name="Tree4" parent="Marker3D" instance=ExtResource("6_thdv0")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.295409, 0.188106, 0.319849)
 
 [node name="PersonHandler" parent="." instance=ExtResource("2_vhkp1")]
 
