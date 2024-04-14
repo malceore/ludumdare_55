@@ -1,3 +1,5 @@
 res://scenes/exposition/exposition.tscn
 res://scenes/mainmenu/main_menu.tscn
 res://scenes/levels/level_3/level.tscn
+res://scenes/levels/template/level.tscn
+res://scenes/levels/level_4/level.tscn
