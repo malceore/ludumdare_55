@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccjknp6cyccad"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_fe8ej"]
+
+[node name="Floor" type="StaticBody3D"]
+transform = Transform3D(1, -2.10734e-08, -8.9407e-08, 0, 1, 0, -8.9407e-08, 2.10734e-08, 1, 1.64636e-10, -0.00512016, -1.64636e-10)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500803, 0)
+shape = SubResource("WorldBoundaryShape3D_fe8ej")

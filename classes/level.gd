@@ -11,13 +11,13 @@ class_name level
 @onready var camera = $CameraPivot/Marker3D/Camera3D
 @onready var person_handler = $PersonHandler
 @onready var game_summary_menu = $GameSummaryMenu
+@onready var spotlight = $Marker3D/Spotlight
 
 var started = false
 var zoomed = false
 
 func _ready():
 	get_tree().paused = false
-	$AudioStreamPlayer.loop = true
 	person_handler.person_events.connect(handle_person_event)
 	$Summons.Sprite.frame = target
 	started = true
@@ -37,12 +37,24 @@ func win():
 	game_summary_menu.display()
 
 func _input(event):
-#	if zoomed and event is InputEventMouseMotion:
-#		camera.rotate_y(deg_to_rad(-event.relative.x * zoomed_mouse_sen))
-#		var mousePos = get_mouse_coordinates()
-#		if mousePos.size() > 0:
-#			$CameraPivot.position.x = mousePos.position.x
-#			$CameraPivot.position.y = mousePos.position.y
+	
+	if event is InputEventMouseMotion:
+		if !zoomed:
+			spotlight.visible = true
+			var mousePos = get_mouse_coordinates()
+			if mousePos.size() > 0:
+				spotlight.global_position.x = mousePos.position.x
+				spotlight.global_position.z = mousePos.position.z
+		else:
+			spotlight.visible = false
+
+	if zoomed and event is InputEventMouseMotion:
+#		camera.rotate_y(deg_to_rad(event.relative.y * zoomed_mouse_sen))
+		var mousePos = get_mouse_coordinates()
+		if mousePos.size() > 0:
+			$CameraPivot.position.x = mousePos.position.x 
+			$CameraPivot.position.z = mousePos.position.z
+
 	if event.is_action_pressed("rotate_left"):
 		rotate_left()
 	if event.is_action_pressed("rotate_right"):
@@ -59,20 +71,19 @@ func _input(event):
 			zoomed = true
 			if mousePos.size() > 0:
 				camera.position.z = -zoomAmount
-				$CameraPivot.position.x = mousePos.position.x
-				$CameraPivot.position.y = mousePos.position.y
+				$CameraPivot.global_position.x = mousePos.position.x
+				$CameraPivot.global_position.z = mousePos.position.z
 
 
 func get_mouse_coordinates():
 	var space_state = get_world_3d().direct_space_state
-	var cam = camera
 	var mousepos = get_viewport().get_mouse_position()
+	# Adding an offset because for some reason the mouse cursor output is off.
+	mousepos -= Vector2(-10, 150)
 
-	var origin = cam.project_ray_origin(mousepos)
-	var end = origin + cam.project_ray_normal(mousepos) * 100
+	var origin = camera.project_ray_origin(mousepos)
+	var end = origin + camera.project_ray_normal(mousepos) * 100
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
-	query.collide_with_areas = true
-	# This is the collision of the ground only.
 	query.collision_mask = 2
 	return space_state.intersect_ray(query)
 

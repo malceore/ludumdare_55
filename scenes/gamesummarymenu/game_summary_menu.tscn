@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8vlkg3x1hsmw"]
 
-[ext_resource type="Script" path="res://gamesummarmenu/game_summary_menu.gd" id="1_ng6mc"]
+[ext_resource type="Script" path="res://scenes/gamesummarymenu/game_summary_menu.gd" id="1_ng6mc"]
 [ext_resource type="AudioStream" uid="uid://c152gmk6yvg4i" path="res://sounds/CongratsCrush.wav" id="2_fvap0"]
 
 [node name="GameSummaryMenu" type="Panel"]

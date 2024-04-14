@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://barvvkv4myob8"]
+[gd_scene load_steps=11 format=3 uid="uid://barvvkv4myob8"]
 
 [ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_x5nrb"]
 [ext_resource type="PackedScene" uid="uid://dco1bi4sd2qfo" path="res://models/bench.glb" id="2_rmswl"]
@@ -6,14 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://dxnwjrdgshhgn" path="res://models/level_cube.glb" id="3_358bk"]
 [ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="3_bqjlc"]
 [ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="4_5l7a3"]
-[ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://gamesummarmenu/game_summary_menu.tscn" id="4_wvah6"]
+[ext_resource type="PackedScene" uid="uid://bib8632jvtttu" path="res://spotlight/spotlight.tscn" id="4_trbk8"]
+[ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="4_wvah6"]
 [ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="5_74ijw"]
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_n12nj"]
+[ext_resource type="PackedScene" uid="uid://ccjknp6cyccad" path="res://floot/floor.tscn" id="5_omupj"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_x5nrb")
-zoom_mouse_sen = null
 target = 13
 nextLevelPath = "res://scenes/levels/level_2/level.tscn"
 
@@ -39,14 +38,10 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.0640756, 0.035786
 [node name="SpotLight3D" type="SpotLight3D" parent="Marker3D"]
 transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 0.707107, -0.703598, -0.0703525, 0, 2.47017, 0)
 
-[node name="Floor" type="StaticBody3D" parent="Marker3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496113, 0)
-collision_layer = 2
-collision_mask = 2
+[node name="Spotlight" parent="Marker3D" instance=ExtResource("4_trbk8")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0.0111573, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3D/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500803, 0)
-shape = SubResource("WorldBoundaryShape3D_n12nj")
+[node name="Floor" parent="Marker3D" instance=ExtResource("5_omupj")]
 
 [node name="PersonHandler" parent="." instance=ExtResource("2_vhkp1")]
 

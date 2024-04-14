@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyrbqlnwvsug4"]
+[gd_scene load_steps=11 format=3 uid="uid://cyrbqlnwvsug4"]
 
 [ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_42swh"]
-[ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://personhandler/person_handler.tscn" id="2_4wxbi"]
+[ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://scenes/personhandler/person_handler.tscn" id="2_4wxbi"]
+[ext_resource type="PackedScene" uid="uid://bib8632jvtttu" path="res://spotlight/spotlight.tscn" id="2_jew2v"]
 [ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="3_1i5de"]
+[ext_resource type="PackedScene" uid="uid://ccjknp6cyccad" path="res://floot/floor.tscn" id="3_36n4h"]
 [ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="4_1kxos"]
-[ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://gamesummarmenu/game_summary_menu.tscn" id="5_b2ltw"]
+[ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="5_b2ltw"]
 [ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="6_wlwdj"]
 [ext_resource type="PackedScene" uid="uid://c8al73dh8lfnr" path="res://models/building_1.glb" id="7_5mwep"]
 [ext_resource type="PackedScene" uid="uid://dnnbhmqukjb16" path="res://models/fountain.glb" id="8_t22el"]
@@ -32,7 +34,10 @@ transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 
 [node name="CSGBox3D" type="CSGBox3D" parent="Marker3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496113, 0)
 
-[node name="Node2D" type="Node2D" parent="Marker3D"]
+[node name="Spotlight" parent="Marker3D" instance=ExtResource("2_jew2v")]
+transform = Transform3D(0.04, -8.42936e-10, -1.86265e-09, 0, 0.04, 0, -1.86265e-09, 8.42936e-10, 0.04, -0.15859, 0.00294308, -0.107698)
+
+[node name="Floor" parent="Marker3D" instance=ExtResource("3_36n4h")]
 
 [node name="PersonHandler" parent="." instance=ExtResource("2_4wxbi")]
 

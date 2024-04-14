@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bib8632jvtttu"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_ybw28"]
+inner_radius = 0.86
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46rwy"]
+emission_enabled = true
+emission = Color(0.976471, 0.831373, 0.509804, 1)
+emission_energy_multiplier = 6.0
+emission_on_uv2 = true
+
+[node name="Spotlight" type="MeshInstance3D"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+visible = false
+layers = 2
+cast_shadow = 0
+mesh = SubResource("TorusMesh_ybw28")
+skeleton = NodePath("Light")
+surface_material_override/0 = SubResource("StandardMaterial3D_46rwy")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
+visible = false
+light_color = Color(0.815686, 0.65098, 0.384314, 1)
+light_energy = 0.05
+light_size = 1.0
+omni_range = 1.0

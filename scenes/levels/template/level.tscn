@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2sx7mfgqd5hw"]
+[gd_scene load_steps=8 format=3 uid="uid://d2sx7mfgqd5hw"]
 
 [ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_64n18"]
 [ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="2_h28ui"]
 [ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://scenes/personhandler/person_handler.tscn" id="2_uhp2s"]
-[ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://gamesummarmenu/game_summary_menu.tscn" id="4_jnu1v"]
+[ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="4_jnu1v"]
 [ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="5_x17dl"]
 [ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="6_n4wvy"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_omr8r"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_64n18")
@@ -29,7 +31,14 @@ transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 
 [node name="CSGBox3D" type="CSGBox3D" parent="Marker3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496113, 0)
 
-[node name="Node2D" type="Node2D" parent="Marker3D"]
+[node name="Floor" type="StaticBody3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0142799, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3D/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500803, 0)
+shape = SubResource("WorldBoundaryShape3D_omr8r")
 
 [node name="PersonHandler" parent="." instance=ExtResource("2_uhp2s")]
 
