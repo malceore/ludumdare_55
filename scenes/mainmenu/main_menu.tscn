@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bucqo5cg2vlsg"]
+[gd_scene load_steps=5 format=3 uid="uid://bucqo5cg2vlsg"]
 
 [ext_resource type="Script" path="res://scenes/mainmenu/main_menu.gd" id="1_44mw3"]
 [ext_resource type="AudioStream" uid="uid://5qron60lvuq1" path="res://sounds/Searching.wav" id="1_x4n8c"]
+[ext_resource type="Theme" uid="uid://bpgeysv7ntn3o" path="res://theme/main_theme.tres" id="2_wjsvx"]
 [ext_resource type="AudioStream" uid="uid://c64li8gapmowl" path="res://sounds/GavelCrush.wav" id="3_q7a5s"]
 
 [node name="MainMenu" type="Node3D"]
@@ -24,6 +25,8 @@ layout_mode = 2
 [node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+theme = ExtResource("2_wjsvx")
+theme_override_colors/default_color = Color(0.894118, 0.160784, 0.305882, 1)
 theme_override_font_sizes/bold_font_size = 75
 bbcode_enabled = true
 text = "[center][b]Hell Court "
@@ -40,21 +43,31 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+theme = ExtResource("2_wjsvx")
 text = "You are a court appointed server and must summon people to the court of hell for judegement."
 
 [node name="ButtonLevel1" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme = ExtResource("2_wjsvx")
+theme_override_colors/font_color = Color(0.894118, 0.160784, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.894118, 0.160784, 0.305882, 1)
+theme_override_colors/font_hover_color = Color(0.894118, 0.160784, 0.305882, 1)
 text = "Level 1 "
 
 [node name="ButtonLevel2" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme = ExtResource("2_wjsvx")
+theme_override_colors/font_color = Color(0.894118, 0.160784, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.894118, 0.160784, 0.305882, 1)
 text = "Level 2"
 
 [node name="ButtonLevel3" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme = ExtResource("2_wjsvx")
+theme_override_colors/font_color = Color(0.894118, 0.160784, 0.305882, 1)
 text = "Level 3"
 
 [node name="Credits" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
