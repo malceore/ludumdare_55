@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="4_5l7a3"]
 [ext_resource type="PackedScene" uid="uid://bib8632jvtttu" path="res://spotlight/spotlight.tscn" id="4_trbk8"]
 [ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="4_wvah6"]
-[ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="5_74ijw"]
 [ext_resource type="PackedScene" uid="uid://ccjknp6cyccad" path="res://floot/floor.tscn" id="5_omupj"]
+[ext_resource type="AudioStream" uid="uid://5qron60lvuq1" path="res://sounds/Searching.wav" id="10_ldgkx"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_x5nrb")
@@ -55,7 +55,7 @@ isTarget = true
 visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_74ijw")
+stream = ExtResource("10_ldgkx")
 autoplay = true
 
 [node name="Instructions" type="Panel" parent="."]
