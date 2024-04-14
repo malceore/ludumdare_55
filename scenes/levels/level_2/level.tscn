@@ -1,15 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmlt1x0kcyb7f"]
+[gd_scene load_steps=13 format=3 uid="uid://cmlt1x0kcyb7f"]
 
 [ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_6yisj"]
 [ext_resource type="PackedScene" uid="uid://ccjknp6cyccad" path="res://floot/floor.tscn" id="2_1b2ln"]
 [ext_resource type="PackedScene" uid="uid://cltt67r7yho64" path="res://models/building_2.glb" id="2_4574h"]
 [ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://scenes/personhandler/person_handler.tscn" id="2_cod4o"]
 [ext_resource type="PackedScene" uid="uid://bdqnsp6cfo4fh" path="res://models/street_light.glb" id="3_5oje2"]
+[ext_resource type="PackedScene" uid="uid://ccut2fkh62wok" path="res://scenes/levels/level_2/model.glb" id="3_gry6v"]
 [ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="3_m11ag"]
 [ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="4_pfksv"]
 [ext_resource type="PackedScene" uid="uid://bib8632jvtttu" path="res://spotlight/spotlight.tscn" id="5_nnsdy"]
 [ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="5_rdhru"]
 [ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="10_lu6q1"]
+
+[sub_resource type="Environment" id="Environment_ex3sy"]
+background_mode = 2
+background_energy_multiplier = 2.63
 
 [node name="Level2" type="Node3D"]
 script = ExtResource("1_6yisj")
@@ -32,6 +37,9 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 
 [node name="Floor" parent="Marker3D" instance=ExtResource("2_1b2ln")]
 
+[node name="model" parent="Marker3D" instance=ExtResource("3_gry6v")]
+transform = Transform3D(-0.6, 0, -2.98023e-08, 0, 0.6, 0, 2.98023e-08, 0, -0.6, 0, -0.598541, 0)
+
 [node name="building_2" parent="Marker3D" instance=ExtResource("2_4574h")]
 transform = Transform3D(0, 0, 0.09, 0, 0.09, 0, -0.09, 0, 0, -0.290709, 0.0964438, 0.251144)
 
@@ -43,6 +51,7 @@ transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Marker3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496113, 0)
+visible = false
 
 [node name="street_light" parent="Marker3D" instance=ExtResource("3_5oje2")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.412764, 0.0150529, -0.189781)
@@ -54,7 +63,27 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.42204, 0.015053, 
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.00693294, 0.0150529, -0.223721)
 
 [node name="Spotlight" parent="Marker3D" instance=ExtResource("5_nnsdy")]
-transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0.00696977, 0)
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0.00208676, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Marker3D"]
+environment = SubResource("Environment_ex3sy")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.010914, 0.267249, -0.330181)
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37113e-08, 0.394737, 0.267249, -0.310985)
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37113e-08, -0.396834, 0.267249, -0.316543)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.287776, 0.169338, 0.252749)
+light_energy = 0.4
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.261234, 0.169338, 0.256634)
+light_energy = 0.4
 
 [node name="PersonHandler" parent="." instance=ExtResource("2_cod4o")]
 

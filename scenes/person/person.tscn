@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://lm3yi5h46ggx"]
+[gd_scene load_steps=13 format=3 uid="uid://lm3yi5h46ggx"]
 
 [ext_resource type="Script" path="res://scenes/person/person.gd" id="1_opow3"]
 [ext_resource type="Texture2D" uid="uid://viwp5xl08nyi" path="res://scenes/person/sprite_sheet.png" id="2_8wh7v"]
@@ -8,7 +8,13 @@
 height = 1.25399
 radius = 0.320888
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axot0"]
+albedo_color = Color(0.960784, 0.627451, 0.329412, 1)
+emission_enabled = true
+emission = Color(0.878431, 0.278431, 0.231373, 1)
+
 [sub_resource type="QuadMesh" id="QuadMesh_jwvwd"]
+material = SubResource("StandardMaterial3D_axot0")
 size = Vector2(0.03, 0.04)
 
 [sub_resource type="Curve" id="Curve_bo1q7"]
@@ -18,6 +24,23 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_2brpb"]
 offsets = PackedFloat32Array(0, 0.300885, 1)
 colors = PackedColorArray(0.803802, 0.208342, 0.237888, 1, 0.963337, 0.640122, 0.221069, 1, 0.537009, 0.163089, 0.0869987, 1)
+
+[sub_resource type="Gradient" id="Gradient_gxdfo"]
+
+[sub_resource type="Animation" id="Animation_4g4bp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1)]
+}
 
 [sub_resource type="Animation" id="Animation_ect2k"]
 resource_name = "Wiggle"
@@ -36,21 +59,6 @@ tracks/0/keys = {
 "values": [Vector3(0.1, 0.1, 0.1), Vector3(0.104, 0.104, 0.104), Vector3(0.1, 0.1, 0.1)]
 }
 
-[sub_resource type="Animation" id="Animation_4g4bp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.1, 0.1, 0.1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h55j7"]
 _data = {
 "RESET": SubResource("Animation_4g4bp"),
@@ -58,7 +66,7 @@ _data = {
 }
 
 [node name="Person" type="Sprite3D"]
-transform = Transform3D(0.100847, 0, 0, 0, 0.100847, 0, 0, 0, 0.100847, 0, 0.0663087, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0663087, 0)
 billboard = 2
 texture = ExtResource("2_8wh7v")
 hframes = 10
@@ -89,6 +97,7 @@ radial_accel_max = 2.0
 scale_amount_min = 0.5
 scale_amount_curve = SubResource("Curve_bo1q7")
 color_ramp = SubResource("Gradient_2brpb")
+color_initial_ramp = SubResource("Gradient_gxdfo")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_ohedn")

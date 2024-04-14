@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_x5nrb"]
 [ext_resource type="PackedScene" uid="uid://dco1bi4sd2qfo" path="res://models/bench.glb" id="2_rmswl"]
 [ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://scenes/personhandler/person_handler.tscn" id="2_vhkp1"]
-[ext_resource type="PackedScene" uid="uid://dxnwjrdgshhgn" path="res://models/level_cube.glb" id="3_358bk"]
 [ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="3_bqjlc"]
 [ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="4_5l7a3"]
 [ext_resource type="PackedScene" uid="uid://bib8632jvtttu" path="res://spotlight/spotlight.tscn" id="4_trbk8"]
 [ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="4_wvah6"]
+[ext_resource type="PackedScene" uid="uid://5jjkxco2xoy3" path="res://scenes/levels/level_1/model.glb" id="5_h4ao4"]
 [ext_resource type="PackedScene" uid="uid://ccjknp6cyccad" path="res://floot/floor.tscn" id="5_omupj"]
 [ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="10_ldgkx"]
 
@@ -29,23 +29,25 @@ fov = 42.8
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
 
-[node name="level_cube" parent="Marker3D" instance=ExtResource("3_358bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.994177, 0)
-
 [node name="bench" parent="Marker3D" instance=ExtResource("2_rmswl")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.0640756, 0.0357862, 0.0120104)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.150481, 0.0357862, 0.0116242)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Marker3D"]
 transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 0.707107, -0.703598, -0.0703525, 0, 2.47017, 0)
 
 [node name="Spotlight" parent="Marker3D" instance=ExtResource("4_trbk8")]
-transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0.0111573, 0)
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0.0213595, 0)
+visible = true
 
 [node name="Floor" parent="Marker3D" instance=ExtResource("5_omupj")]
+
+[node name="model" parent="Marker3D" instance=ExtResource("5_h4ao4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.495336, 0)
 
 [node name="PersonHandler" parent="." instance=ExtResource("2_vhkp1")]
 
 [node name="Person" parent="PersonHandler" instance=ExtResource("3_bqjlc")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0386846, 0.0663087, 0.069198)
 frame = 13
 isTarget = true
 

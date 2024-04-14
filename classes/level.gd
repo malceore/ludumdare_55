@@ -33,6 +33,7 @@ func _ready():
 func handle_person_event(whatType, isTarget, isDemon, target):
 	if whatType == "clicked":
 		if isTarget:
+			await get_tree().create_timer(0.5).timeout
 			win()
 
 
