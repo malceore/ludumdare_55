@@ -48,4 +48,4 @@ func _on_button_level_5_pressed():
 	load_level(level[5])
 
 func _on_button_level_6_pressed():
-	load_level(level[0])
+	load_level(level[6])

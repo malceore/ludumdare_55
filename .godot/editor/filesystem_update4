@@ -1,8 +1,13 @@
-res://scenes/mainmenu/main_menu.tscn
 res://scenes/levels/level_7/level.tscn
-res://scenes/person/person.tscn
-res://scenes/personhandler/person_handler.tscn
 res://scenes/levels/level_8/level.tscn
 res://scenes/levels/level_9/level.tscn
+res://scenes/mainmenu/main_menu.gd
+res://scenes/mainmenu/main_menu.tscn
+res://scenes/person/person.tscn
+res://scenes/personhandler/person_handler.tscn
+res://scenes/personhandler/person_handler.gd
+res://classes/level.gd
+res://scenes/levels/level_3/level.tscn
 res://scenes/levels/level_5/level.tscn
+res://scenes/levels/level_4/level.tscn
 res://scenes/levels/level_6/level.tscn

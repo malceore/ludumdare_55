@@ -12,14 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="10_nr04o"]
 [ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="11_fxgo4"]
 [ext_resource type="PackedScene" uid="uid://r8klavu2djac" path="res://models/garage.glb" id="12_dankc"]
-[ext_resource type="AudioStream" uid="uid://5qron60lvuq1" path="res://sounds/Searching.wav" id="12_eujrd"]
+[ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="12_eujrd"]
 [ext_resource type="PackedScene" uid="uid://u5j4bdblthr6" path="res://models/shop.glb" id="13_lnnyp"]
 [ext_resource type="PackedScene" uid="uid://dnnbhmqukjb16" path="res://models/fountain.glb" id="15_5mwtv"]
 [ext_resource type="PackedScene" uid="uid://c8al73dh8lfnr" path="res://models/building_1.glb" id="16_hedh8"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_qbg3g")
-nextLevelPath = "res://scenes/levels/level_2/level.tscn"
+nextLevelPath = "res://scenes/levels/level_6/level.tscn"
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.745348, 0.666676, 0, -0.666676, 0.745348, 0, 0.00199997, 0)
@@ -38,9 +38,6 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 [node name="level_cube" parent="Marker3D" instance=ExtResource("2_1ddo8")]
 transform = Transform3D(0.999853, -0.0171281, -0.000146717, 0.0171281, 0.999707, 0.0171281, -0.000146717, -0.0171281, 0.999853, 0, -0.994177, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Marker3D"]
-transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 0.707107, -0.703598, -0.0703525, 0, 2.47017, 0)
-
 [node name="Spotlight" parent="Marker3D" instance=ExtResource("3_st0pg")]
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0.0111573, 0)
 
@@ -54,6 +51,14 @@ transform = Transform3D(-0.0999999, 0, -0.000134386, 0, 0.1, 0, 0.000134386, 0, 
 
 [node name="street_light2" parent="Marker3D" instance=ExtResource("7_4vy67")]
 transform = Transform3D(-0.0999392, 0, 0.0034882, 0, 0.1, 0, -0.0034882, 0, -0.0999392, -0.27613, 0, -0.561413)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Marker3D"]
+transform = Transform3D(-0.777051, -0.34156, 0.528704, -0.245332, 0.937883, 0.245332, -0.579659, 0.0609274, -0.812578, 0.154066, 0.571139, 0.12638)
+light_color = Color(0.768627, 0.768627, 0.768627, 1)
+light_energy = 2.0
+light_indirect_energy = 0.0
+shadow_enabled = true
+shadow_blur = 0.1
 
 [node name="PersonHandler" parent="." instance=ExtResource("8_ctcih")]
 
@@ -102,30 +107,6 @@ visible = false
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_eujrd")
 autoplay = true
-
-[node name="Instructions" type="Panel" parent="."]
-offset_right = 538.0
-offset_bottom = 139.0
-
-[node name="MarginContainer" type="MarginContainer" parent="Instructions"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 0
-
-[node name="TextEdit" type="TextEdit" parent="Instructions/MarginContainer"]
-layout_mode = 2
-text = "Instructions: 
-A/D or </> to Rotate the Board
-Shift/Space to Zoom in
-Click on your target to send them to Hell Court for Processing."
 
 [node name="garage" parent="." instance=ExtResource("12_dankc")]
 transform = Transform3D(-0.0774271, 0, -0.0632854, 0, 0.1, 0, 0.0632854, 0, -0.0774271, -0.316184, 0.11069, -0.488729)
