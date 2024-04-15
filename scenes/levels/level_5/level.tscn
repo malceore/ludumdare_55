@@ -80,7 +80,7 @@ transform = Transform3D(0.100847, 0, 0, 0, 0.100847, 0, 0, 0, 0.100847, 0.097288
 frame = 11
 
 [node name="Person6" parent="PersonHandler" instance=ExtResource("9_pdfnt")]
-transform = Transform3D(0.100847, 0, 0, 0, 0.100847, 0, 0, 0, 0.100847, -0.798687, 0.0663087, 0.127485)
+transform = Transform3D(0.100847, 0, 0, 0, 0.100847, 0, 0, 0, 0.100847, -0.766781, 0.0564555, 0.066084)
 frame = 3
 isTarget = true
 

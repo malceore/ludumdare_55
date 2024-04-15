@@ -40,5 +40,5 @@ jobs:
           unzip butler.zip
           chmod +x butler
           ./butler push ${{ steps.export.outputs.archive_directory }}/Windows-Desktop.zip $ITCHIO_USERNAME/$ITCHIO_GAME:Windows-Desktop
-          #./butler push ${{ steps.export.outputs.archive_directory }}/Web.zip $ITCHIO_USERNAME/$ITCHIO_GAME:html5
+          ./butler push ${{ steps.export.outputs.archive_directory }}/Web.zip $ITCHIO_USERNAME/$ITCHIO_GAME:html5
 
