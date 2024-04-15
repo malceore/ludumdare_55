@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=3 uid="uid://bfgnhjmqlxq8y"]
+
+[ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_yfmq3"]
+[ext_resource type="PackedScene" uid="uid://bib8632jvtttu" path="res://spotlight/spotlight.tscn" id="2_tnukq"]
+[ext_resource type="PackedScene" uid="uid://ccjknp6cyccad" path="res://floor/floor.tscn" id="3_83mus"]
+[ext_resource type="PackedScene" uid="uid://c8al73dh8lfnr" path="res://models/building_1.glb" id="4_xl3wp"]
+[ext_resource type="PackedScene" uid="uid://dhrxu75pu50bt" path="res://scenes/levels/level_3/model.glb" id="6_1dmmm"]
+[ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://scenes/personhandler/person_handler.tscn" id="7_xtpfb"]
+[ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="8_k72t2"]
+[ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="9_xfnwt"]
+[ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="10_osw13"]
+[ext_resource type="AudioStream" uid="uid://5qron60lvuq1" path="res://sounds/Searching.wav" id="11_qqsab"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_yfmq3")
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.745348, 0.666676, 0, -0.666676, 0.745348, 0, 0, 0)
+
+[node name="Marker3D" type="Marker3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043, 2.453)
+gizmo_extents = 0.48
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/Marker3D"]
+fov = 42.8
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Marker3D"]
+transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 0.707107, -0.703598, -0.0703525, 0, 2.47017, 0)
+
+[node name="Spotlight" parent="Marker3D" instance=ExtResource("2_tnukq")]
+transform = Transform3D(0.04, -8.42936e-10, -1.86265e-09, 0, 0.04, 0, -1.86265e-09, 8.42936e-10, 0.04, -0.15859, 0.00294308, -0.107698)
+
+[node name="Floor" parent="Marker3D" instance=ExtResource("3_83mus")]
+
+[node name="building_1" parent="Marker3D" instance=ExtResource("4_xl3wp")]
+transform = Transform3D(2.40467e-05, 3.81842e-08, 0.114638, -0.000184074, 0.114637, -2.17365e-11, -0.114637, -0.000184074, 2.40393e-05, -0.395707, 0.142477, -0.370842)
+
+[node name="building_2" parent="Marker3D" instance=ExtResource("4_xl3wp")]
+transform = Transform3D(2.40467e-05, 3.81842e-08, 0.114638, -0.000184074, 0.114637, -2.17365e-11, -0.114637, -0.000184074, 2.40393e-05, -0.375104, 0.117466, 0.37544)
+
+[node name="building_3" parent="Marker3D" instance=ExtResource("4_xl3wp")]
+transform = Transform3D(0.114516, 0.000183879, 0.00527021, -0.000184074, 0.114637, -5.7261e-12, -0.00527021, -8.46265e-06, 0.114516, 0.370431, 0.129993, -0.386207)
+
+[node name="building_4" parent="Marker3D" instance=ExtResource("4_xl3wp")]
+transform = Transform3D(2.40467e-05, 3.81842e-08, 0.114638, -0.000184074, 0.114637, -2.17365e-11, -0.114637, -0.000184074, 2.40393e-05, 0.402111, 0.138702, 0.391997)
+
+[node name="model" parent="Marker3D" instance=ExtResource("6_1dmmm")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.794973, 0)
+
+[node name="building_5" parent="Marker3D" instance=ExtResource("4_xl3wp")]
+transform = Transform3D(2.40467e-05, 3.81769e-08, 0.114638, -0.000184074, 0.114637, -2.17365e-11, -0.114637, -0.000184074, 2.40356e-05, -0.61601, 0.117466, 0.616346)
+
+[node name="building_6" parent="Marker3D" instance=ExtResource("4_xl3wp")]
+transform = Transform3D(2.40467e-05, 3.81769e-08, 0.114638, -0.000184074, 0.114637, -2.17365e-11, -0.114637, -0.000184074, 2.40356e-05, 0.680187, 0.117466, 0.634458)
+
+[node name="building_7" parent="Marker3D" instance=ExtResource("4_xl3wp")]
+transform = Transform3D(0.114516, 0.000183879, 0.00527021, -0.000184074, 0.114637, -5.7261e-12, -0.00527021, -8.46264e-06, 0.114516, 0.591918, 0.134026, -0.599205)
+
+[node name="building_8" parent="Marker3D" instance=ExtResource("4_xl3wp")]
+transform = Transform3D(2.40467e-05, 3.81769e-08, 0.114638, -0.000184074, 0.114637, -2.17365e-11, -0.114637, -0.000184074, 2.40356e-05, -0.612175, 0.142477, -0.58731)
+
+[node name="building_9" parent="Marker3D" instance=ExtResource("4_xl3wp")]
+transform = Transform3D(4.19617e-05, 6.66041e-08, 0.2, -0.000321142, 0.2, 7.59267e-10, -0.2, -0.000321142, 4.19617e-05, 0.00402207, 0.230688, 0.0288871)
+
+[node name="PersonHandler" parent="." instance=ExtResource("7_xtpfb")]
+
+[node name="Person" parent="PersonHandler" instance=ExtResource("8_k72t2")]
+transform = Transform3D(0.0846816, 0, -0.0531886, 0, 0.1, 0, 0.0531886, 0, 0.0846816, -0.101684, 0.0363385, -0.864904)
+frame = 23
+isDemon = true
+
+[node name="Person2" parent="PersonHandler" instance=ExtResource("8_k72t2")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.597776, 0.0297655, -0.0882384)
+isTarget = true
+
+[node name="Person3" parent="PersonHandler" instance=ExtResource("8_k72t2")]
+transform = Transform3D(0.1, 0, 0, 0, -0.059069, -0.0806899, 0, 0.0806899, -0.059069, 0.0864983, 0.386866, -0.52358)
+frame = 22
+isDemon = true
+
+[node name="Person4" parent="PersonHandler" instance=ExtResource("8_k72t2")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0810593, 0.663933, 0.209848)
+frame = 20
+isDemon = true
+
+[node name="Person5" parent="PersonHandler" instance=ExtResource("8_k72t2")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.920471, 0.386607, 0.00727668)
+frame = 20
+isDemon = true
+
+[node name="Person6" parent="PersonHandler" instance=ExtResource("8_k72t2")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.041411, 0.50864, 0.596163)
+frame = 21
+isDemon = true
+
+[node name="Summons" parent="." instance=ExtResource("9_xfnwt")]
+
+[node name="GameSummaryMenu" parent="." instance=ExtResource("10_osw13")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_qqsab")
+autoplay = true
