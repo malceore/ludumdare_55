@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="8_0dadr"]
 [ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="9_mq7wo"]
 [ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="10_ta3yg"]
-[ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="11_g3ruy"]
+[ext_resource type="AudioStream" uid="uid://5qron60lvuq1" path="res://sounds/Searching.wav" id="11_g3ruy"]
 [ext_resource type="PackedScene" uid="uid://r8klavu2djac" path="res://models/garage.glb" id="11_vf5gr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ljcye"]

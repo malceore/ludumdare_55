@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://u5j4bdblthr6" path="res://models/shop.glb" id="8_gu4hm"]
 [ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="9_gcgh1"]
 [ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="10_qf6o3"]
-[ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="11_elsgq"]
+[ext_resource type="AudioStream" uid="uid://5qron60lvuq1" path="res://sounds/Searching.wav" id="11_elsgq"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_nxkiv")

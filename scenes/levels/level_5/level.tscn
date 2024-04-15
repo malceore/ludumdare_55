@@ -1,0 +1,158 @@
+[gd_scene load_steps=17 format=3 uid="uid://c4kilt607ecie"]
+
+[ext_resource type="Script" path="res://scenes/levels/template/level.gd" id="1_qbg3g"]
+[ext_resource type="PackedScene" uid="uid://dxnwjrdgshhgn" path="res://models/level_cube.glb" id="2_1ddo8"]
+[ext_resource type="PackedScene" uid="uid://bib8632jvtttu" path="res://spotlight/spotlight.tscn" id="3_st0pg"]
+[ext_resource type="PackedScene" uid="uid://ccjknp6cyccad" path="res://floor/floor.tscn" id="4_mv1iq"]
+[ext_resource type="PackedScene" uid="uid://cltt67r7yho64" path="res://models/building_2.glb" id="5_0e8ij"]
+[ext_resource type="PackedScene" uid="uid://dco1bi4sd2qfo" path="res://models/bench.glb" id="6_88kaj"]
+[ext_resource type="PackedScene" uid="uid://bdqnsp6cfo4fh" path="res://models/street_light.glb" id="7_4vy67"]
+[ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://scenes/personhandler/person_handler.tscn" id="8_ctcih"]
+[ext_resource type="PackedScene" uid="uid://lm3yi5h46ggx" path="res://scenes/person/person.tscn" id="9_pdfnt"]
+[ext_resource type="PackedScene" uid="uid://dbvk448pe8m6a" path="res://summons/summons.tscn" id="10_nr04o"]
+[ext_resource type="PackedScene" uid="uid://b8vlkg3x1hsmw" path="res://scenes/gamesummarymenu/game_summary_menu.tscn" id="11_fxgo4"]
+[ext_resource type="PackedScene" uid="uid://r8klavu2djac" path="res://models/garage.glb" id="12_dankc"]
+[ext_resource type="AudioStream" uid="uid://5qron60lvuq1" path="res://sounds/Searching.wav" id="12_eujrd"]
+[ext_resource type="PackedScene" uid="uid://u5j4bdblthr6" path="res://models/shop.glb" id="13_lnnyp"]
+[ext_resource type="PackedScene" uid="uid://dnnbhmqukjb16" path="res://models/fountain.glb" id="15_5mwtv"]
+[ext_resource type="PackedScene" uid="uid://c8al73dh8lfnr" path="res://models/building_1.glb" id="16_hedh8"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_qbg3g")
+nextLevelPath = "res://scenes/levels/level_2/level.tscn"
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.745348, 0.666676, 0, -0.666676, 0.745348, 0, 0.00199997, 0)
+
+[node name="Marker3D" type="Marker3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043, 2.453)
+gizmo_extents = 0.48
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/Marker3D"]
+current = true
+fov = 42.8
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+
+[node name="level_cube" parent="Marker3D" instance=ExtResource("2_1ddo8")]
+transform = Transform3D(0.999853, -0.0171281, -0.000146717, 0.0171281, 0.999707, 0.0171281, -0.000146717, -0.0171281, 0.999853, 0, -0.994177, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Marker3D"]
+transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 0.707107, -0.703598, -0.0703525, 0, 2.47017, 0)
+
+[node name="Spotlight" parent="Marker3D" instance=ExtResource("3_st0pg")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0.0111573, 0)
+
+[node name="Floor" parent="Marker3D" instance=ExtResource("4_mv1iq")]
+
+[node name="bench" parent="Marker3D" instance=ExtResource("6_88kaj")]
+transform = Transform3D(-0.0997737, 0, 0.00672494, 0, 0.1, 0, -0.00672494, 0, -0.0997737, 0.651387, 0.0217234, 0.535953)
+
+[node name="street_light" parent="Marker3D" instance=ExtResource("7_4vy67")]
+transform = Transform3D(-0.0999999, 0, -0.000134386, 0, 0.1, 0, 0.000134386, 0, -0.0999999, 0.377918, 0, -0.547382)
+
+[node name="street_light2" parent="Marker3D" instance=ExtResource("7_4vy67")]
+transform = Transform3D(-0.0999392, 0, 0.0034882, 0, 0.1, 0, -0.0034882, 0, -0.0999392, -0.27613, 0, -0.561413)
+
+[node name="PersonHandler" parent="." instance=ExtResource("8_ctcih")]
+
+[node name="Person2" parent="PersonHandler" instance=ExtResource("9_pdfnt")]
+transform = Transform3D(0.100847, 0, 0, 0, 0.100847, 0, 0, 0, 0.100847, -0.503742, 0.0527591, -0.357614)
+frame = 10
+
+[node name="Person3" parent="PersonHandler" instance=ExtResource("9_pdfnt")]
+transform = Transform3D(0.100847, 0, 0, 0, 0.100847, 0, 0, 0, 0.100847, 0.59593, 0.0663087, -0.278006)
+frame = 12
+
+[node name="Person4" parent="PersonHandler" instance=ExtResource("9_pdfnt")]
+transform = Transform3D(-0.0800876, 0, -0.061287, 0, 0.100847, 0, 0.061287, 0, -0.0800876, -0.376536, 0.0667762, -0.652793)
+frame = 23
+isDemon = true
+
+[node name="Person5" parent="PersonHandler" instance=ExtResource("9_pdfnt")]
+transform = Transform3D(0.100847, 0, 0, 0, 0.100847, 0, 0, 0, 0.100847, 0.0972881, 0.0663087, 0.934043)
+frame = 11
+
+[node name="Person6" parent="PersonHandler" instance=ExtResource("9_pdfnt")]
+transform = Transform3D(0.100847, 0, 0, 0, 0.100847, 0, 0, 0, 0.100847, -0.798687, 0.0663087, 0.127485)
+frame = 3
+isTarget = true
+
+[node name="Person7" parent="PersonHandler" instance=ExtResource("9_pdfnt")]
+transform = Transform3D(0.100847, 0, 0, 0, 0.100847, 0, 0, 0, 0.100847, 0.726411, 0.0463324, -0.254999)
+frame = 21
+isDemon = true
+
+[node name="Person8" parent="PersonHandler" instance=ExtResource("9_pdfnt")]
+transform = Transform3D(0.100847, 0, 0, 0, 0.100847, 0, 0, 0, 0.100847, 0.146175, 0.0402582, -0.357614)
+vframes = 2
+frame = 2
+
+[node name="Person9" parent="PersonHandler" instance=ExtResource("9_pdfnt")]
+transform = Transform3D(0.100847, 0, 0, 0, 0.100847, 0, 0, 0, 0.100847, 0.146175, 0.0402582, 0.413281)
+vframes = 2
+frame = 2
+
+[node name="Summons" parent="." instance=ExtResource("10_nr04o")]
+
+[node name="GameSummaryMenu" parent="." instance=ExtResource("11_fxgo4")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_eujrd")
+autoplay = true
+
+[node name="Instructions" type="Panel" parent="."]
+offset_right = 538.0
+offset_bottom = 139.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Instructions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="TextEdit" type="TextEdit" parent="Instructions/MarginContainer"]
+layout_mode = 2
+text = "Instructions: 
+A/D or </> to Rotate the Board
+Shift/Space to Zoom in
+Click on your target to send them to Hell Court for Processing."
+
+[node name="garage" parent="." instance=ExtResource("12_dankc")]
+transform = Transform3D(-0.0774271, 0, -0.0632854, 0, 0.1, 0, 0.0632854, 0, -0.0774271, -0.316184, 0.11069, -0.488729)
+
+[node name="shop" parent="." instance=ExtResource("13_lnnyp")]
+transform = Transform3D(-0.0744241, 0, -0.0667911, 0, 0.1, 0, 0.0667911, 0, -0.0744241, -0.508034, 0.0444922, -0.327217)
+
+[node name="shop2" parent="." instance=ExtResource("13_lnnyp")]
+transform = Transform3D(-0.0725302, 0, 0.0688431, 0, 0.1, 0, -0.0688431, 0, -0.0725302, 0.591042, 0.0444922, -0.327217)
+
+[node name="shop3" parent="." instance=ExtResource("13_lnnyp")]
+transform = Transform3D(-0.070728, 0, 0.0706934, 0, 0.1, 0, -0.0706934, 0, -0.070728, 0.795888, 0.0444922, -0.242088)
+
+[node name="building_2" parent="." instance=ExtResource("5_0e8ij")]
+transform = Transform3D(0.0999954, 0, -0.00095816, 0, 0.1, 0, 0.00095816, 0, 0.0999954, -0.842434, 0.100876, 0.188302)
+
+[node name="shop4" parent="." instance=ExtResource("13_lnnyp")]
+transform = Transform3D(0.1, 0, 0, 0, 0.0998669, 0.00515865, 0, -0.00515865, 0.0998669, -0.104682, 0.0485, 0.764333)
+
+[node name="fountain" parent="." instance=ExtResource("15_5mwtv")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.0475847, 0.0152648, 0.0847761)
+
+[node name="building_1" parent="." instance=ExtResource("16_hedh8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0211276, 0.127352, -1.02346)
+
+[node name="bench" parent="." instance=ExtResource("6_88kaj")]
+transform = Transform3D(0.0721784, 0, -0.0692118, 0, 0.1, 0, 0.0692118, 0, 0.0721784, -0.161981, 0.0248558, -0.0535544)
+
+[node name="building_3" parent="." instance=ExtResource("16_hedh8")]
+transform = Transform3D(0.0747242, 0, -0.0664552, 0, 0.1, 0, 0.0664552, 0, 0.0747242, 0.661767, 0.127352, 0.565257)
