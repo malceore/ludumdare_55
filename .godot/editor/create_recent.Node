@@ -1,3 +1,5 @@
+Camera3D
+MeshInstance3D
 Sprite3D
 OmniLight3D
 SpotLight3D
@@ -11,7 +13,6 @@ RichTextLabel
 Label
 MarginContainer
 AudioStreamPlayer
-MeshInstance3D
 CSGTorus3D
 CSGCylinder3D
 CSGBox3D
@@ -21,7 +22,6 @@ TextEdit
 AudioStreamPlayer3D
 CPUParticles3D
 GPUParticles2D
-Camera3D
 GPUParticles3D
 Node2D
 Node3D

@@ -8,14 +8,15 @@
 height = 1.25399
 radius = 0.320888
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axot0"]
-albedo_color = Color(0.960784, 0.627451, 0.329412, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gr73y"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.905882, 0.152941, 0.341176, 1)
 emission_enabled = true
-emission = Color(0.878431, 0.278431, 0.231373, 1)
+emission = Color(0.964706, 0.337255, 0.415686, 1)
 
-[sub_resource type="QuadMesh" id="QuadMesh_jwvwd"]
-material = SubResource("StandardMaterial3D_axot0")
-size = Vector2(0.03, 0.04)
+[sub_resource type="BoxMesh" id="BoxMesh_o2exw"]
+material = SubResource("StandardMaterial3D_gr73y")
+size = Vector3(0.01, 0.05, 0.01)
 
 [sub_resource type="Curve" id="Curve_bo1q7"]
 _data = [Vector2(0.144444, 1), 0.0, 0.0, 0, 0, Vector2(0.848148, 0.202847), 0.0, 0.0, 0, 0]
@@ -82,13 +83,13 @@ shape = SubResource("CylinderShape3D_6mlv6")
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65513, 0)
 emitting = false
-amount = 32
-lifetime = 0.4
+amount = 48
+lifetime = 0.3
 one_shot = true
 explosiveness = 0.1
 fixed_fps = 30
 fract_delta = false
-mesh = SubResource("QuadMesh_jwvwd")
+mesh = SubResource("BoxMesh_o2exw")
 emission_shape = 1
 emission_sphere_radius = 0.25
 gravity = Vector3(0, 12, 0)

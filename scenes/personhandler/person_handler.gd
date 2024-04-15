@@ -14,6 +14,12 @@ func _ready():
 		if child.isDemon:
 			totalDemons += 1
 
+func get_target():
+	for child in get_children():
+		if child.isTarget:
+			return child
+	return get_children()[0]
+
 func handle_person_event(whatType, isTarget, isDemon, target):
 	if whatType == "clicked":
 		if isDemon:

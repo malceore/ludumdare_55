@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bucqo5cg2vlsg"]
+[gd_scene load_steps=12 format=3 uid="uid://bucqo5cg2vlsg"]
 
 [ext_resource type="Script" path="res://scenes/mainmenu/main_menu.gd" id="1_44mw3"]
 [ext_resource type="AudioStream" uid="uid://cfckesdrbd4xf" path="res://sounds/Searching.wav" id="1_x4n8c"]
 [ext_resource type="AudioStream" uid="uid://c64li8gapmowl" path="res://sounds/GavelCrush.wav" id="3_q7a5s"]
+[ext_resource type="PackedScene" uid="uid://dplclpkluccoj" path="res://models/tree/tree.tscn" id="4_p72h7"]
+[ext_resource type="PackedScene" uid="uid://bib8632jvtttu" path="res://spotlight/spotlight.tscn" id="5_n2brh"]
+[ext_resource type="PackedScene" uid="uid://r8klavu2djac" path="res://models/garage.glb" id="6_tmcqs"]
+[ext_resource type="PackedScene" uid="uid://ccjknp6cyccad" path="res://floor/floor.tscn" id="7_j7uk5"]
+[ext_resource type="PackedScene" uid="uid://5jjkxco2xoy3" path="res://scenes/levels/level_1/model.glb" id="8_cbb22"]
+[ext_resource type="PackedScene" uid="uid://c8al73dh8lfnr" path="res://models/building_1.glb" id="9_frnj2"]
+[ext_resource type="PackedScene" uid="uid://6cm63fwtim7o" path="res://scenes/personhandler/person_handler.tscn" id="10_6qu3i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_88j56"]
+size = Vector3(0.01, 1, 1.76)
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_44mw3")
@@ -22,13 +32,14 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 
 [node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 300)
+custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 theme_override_font_sizes/bold_font_size = 75
 bbcode_enabled = true
 text = "[center][b]Hell Court "
 
 [node name="Exposition" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Title"]
+visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 14
@@ -57,6 +68,37 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Level 3"
 
+[node name="ButtonLevel4" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Level 4
+"
+
+[node name="ButtonLevel5" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Level 5"
+
+[node name="ButtonLevel6" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Level 6"
+
+[node name="ButtonLevel7" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Level 7"
+
+[node name="ButtonLevel8" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Level 8"
+
+[node name="ButtonLevel9" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Level 9"
+
 [node name="Credits" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -71,6 +113,73 @@ autoplay = true
 [node name="AudioGavel" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_q7a5s")
 
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.745348, 0.666676, 0, -0.666676, 0.745348, 0, 0, 0)
+
+[node name="Marker3D" type="Marker3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043, 2.453)
+gizmo_extents = 0.48
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/Marker3D"]
+fov = 42.8
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+
+[node name="Tree" parent="Marker3D" instance=ExtResource("4_p72h7")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.524636, 0.188009, -0.739363)
+
+[node name="Tree2" parent="Marker3D" instance=ExtResource("4_p72h7")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.724308, 0.188009, -0.414084)
+
+[node name="Tree3" parent="Marker3D" instance=ExtResource("4_p72h7")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.500908, 0.188009, 0.222854)
+
+[node name="Tree4" parent="Marker3D" instance=ExtResource("4_p72h7")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.494738, 0.188009, -0.197815)
+
+[node name="Tree5" parent="Marker3D" instance=ExtResource("4_p72h7")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.779656, 0.188009, -0.016458)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Marker3D"]
+transform = Transform3D(0.707107, 0.703598, 0.0703525, 0, -0.0994934, 0.995038, 0.707107, -0.703598, -0.0703525, 0, 2.47017, 0)
+
+[node name="Spotlight" parent="Marker3D" instance=ExtResource("5_n2brh")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0.0213595, 0)
+visible = true
+
+[node name="garage" parent="Marker3D" instance=ExtResource("6_tmcqs")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.588696, 0.154333, 0.658699)
+
+[node name="Floor" parent="Marker3D" instance=ExtResource("7_j7uk5")]
+
+[node name="model" parent="Marker3D" instance=ExtResource("8_cbb22")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.88779, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.293981, -0.369716, -0.00376777)
+mesh = SubResource("BoxMesh_88j56")
+
+[node name="building_1" parent="Marker3D" instance=ExtResource("9_frnj2")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.531337, 0.0448766, -0.497655)
+
+[node name="building_2" parent="Marker3D" instance=ExtResource("9_frnj2")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.535022, 0.326247, 0.309235)
+
+[node name="PersonHandler" parent="." instance=ExtResource("10_6qu3i")]
+
 [connection signal="button_up" from="MarginContainer/VBoxContainer/ButtonLevel1" to="." method="_on_button_level_1_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/ButtonLevel2" to="." method="_on_button_level_2_button_up"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel3" to="." method="_on_button_level_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel4" to="." method="_on_button_level_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel4" to="." method="_on_button_level_4_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel5" to="." method="_on_button_level_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel5" to="." method="_on_button_level_5_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel6" to="." method="_on_button_level_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel6" to="." method="_on_button_level_6_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel7" to="." method="_on_button_level_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel7" to="." method="_on_button_level_7_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel8" to="." method="_on_button_level_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel8" to="." method="_on_button_level_8_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel9" to="." method="_on_button_level_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLevel9" to="." method="_on_button_level_9_pressed"]

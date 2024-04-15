@@ -4,7 +4,8 @@ class_name level
 @export var rotationAmount = 45
 @export var zoomAmount = 1.8
 @export var zoomed_mouse_sen = 0.2
-@export var target = 1
+#@export 
+var target = 1
 @export var nextLevelPath = ""
 
 @onready var map = $Marker3D
@@ -22,6 +23,7 @@ var target_zoom = 0
 func _ready():
 	get_tree().paused = false
 	person_handler.person_events.connect(handle_person_event)
+	target = person_handler.get_target().get_frame()
 	$Summons.Sprite.frame = target
 	started = true
 	if nextLevelPath != "":

@@ -1,6 +1,9 @@
+res://scenes/levels/level_7/level.tscn
+res://scenes/levels/level_8/level.tscn
+res://scenes/levels/level_9/level.tscn
+res://scenes/mainmenu/main_menu.gd
 res://scenes/mainmenu/main_menu.tscn
 res://scenes/person/person.tscn
-res://scenes/levels/level_3/level.tscn
-res://scenes/levels/level_2/level.tscn
-res://spotlight/spotlight.tscn
-res://scenes/levels/level_1/level.tscn
+res://scenes/personhandler/person_handler.tscn
+res://scenes/personhandler/person_handler.gd
+res://classes/level.gd
